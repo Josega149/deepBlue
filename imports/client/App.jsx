@@ -7,9 +7,17 @@ export default class App extends Component {
 
   render() {
     return (
-      <div name="app">
-        <Navigbar />
-        <HomePage />
+      <div>
+        <div className="row hola">
+          <Navigbar />
+        </div>
+        <div className="row">
+          <div className='col-md-1'></div>
+          <div className='col-md-10'>
+            {React.cloneElement(this.props.children, {...this.state})}
+          </div>
+          <div className='col-md-1'></div>
+        </div>
       </div>
     );
   }

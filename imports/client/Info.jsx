@@ -8,7 +8,6 @@ export default class Info extends Component {
   render() {
     return (
       <div name="app">
-        <Navigbar />
         <HomePage />
       </div>
     );

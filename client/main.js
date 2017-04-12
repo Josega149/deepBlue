@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { render } from 'react-dom';
 import {browserHistory, Router, Route, IndexRoute} from 'react-router';
 
+
 import App from '../imports/client/App.jsx';
 import HomePage from '../imports/client/HomePage.jsx';
 import Principal from '../imports/client/Principal.jsx';

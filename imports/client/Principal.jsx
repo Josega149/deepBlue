@@ -6,9 +6,9 @@ export default class Principal extends Component {
 
 
   render() {
+    console.log("porque triple hptas no llega");
     return (
-      <div name="app">
-        <Navigbar />
+      <div name="principal">
         <HomePage />
       </div>
     );
