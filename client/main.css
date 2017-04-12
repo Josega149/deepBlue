@@ -1,1 +1,122 @@
-/* CSS declarations go here */
+@import url("//fonts.googleapis.com/css?family=Lato:300,400,700,300italic");
+
+*{
+  /*border-style: solid;*/
+}
+
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
+    background-color: #2e6da4;
+    background-image: linear-gradient(to bottom,#8cb534 0,#7da12f 100%) !important;
+  }
+
+.hola{}
+
+.green{
+  color: rgb(125, 161, 47);
+}
+
+.grey{
+  color: rgb(65, 65, 65);
+}
+
+.head{
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+
+.bod{
+  font-family: 'Cabin', sans-serif;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.center{
+  text-align: center;
+}
+
+/*Homepage*/
+.logo{
+  width: 12em;
+}
+
+.colombia{
+  width: 10em;
+}
+
+.minilogo{
+  width: 11em;
+}
+
+/*Contratos*/
+.verygood{
+  color: #7bf010;
+}
+
+.good{
+  color: #f9e613;
+}
+
+.bad{
+  color: #ff7300;
+}
+
+.verybad{
+  color: #ff2702;
+}
+
+.superbad{
+  color: #860d00;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    color: #fff !important;
+    background-color: rgb(125, 161, 47) !important;
+    border-color: rgb(125, 161, 47) !important;
+}
+
+.pagination > li > a, .pagination > li > span {
+
+    color: rgb(125, 161, 47) !important;
+}
+
+.graph{
+  width: 50em;
+}
+
+/*Tamu*/
+
+#matrizComponent{
+  text-align: center;
+}
+#intro{
+  height: 40em;
+}
+.proyectoInd{
+  width: 15em;
+  height: 15em;
+  display: block;
+  position: relative;
+}
+
+.tituloP{
+  font-weight: bold;
+  color:black;
+}
+
+.value{
+  color:red;
+}
+
+.url{
+  color:black;
+}
+
+.red-font {
+  color: rgb(152, 21, 21);
+}

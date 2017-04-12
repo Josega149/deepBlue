@@ -1,22 +1,20 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import React from 'react';
+import { Meteor } from 'meteor/meteor';
+import { render } from 'react-dom';
+import {browserHistory, Router, Route, IndexRoute} from 'react-router';
 
-import './main.html';
+import App from '../imports/client/App.jsx';
+import HomePage from '../imports/client/HomePage.jsx';
+import Principal from '../imports/client/Info.jsx';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
-
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
+Meteor.startup(() => {
+  render(
+  <Router history={browserHistory}>
+    <Route path='/' component={App}>
+      <IndexRoute component={HomePage} />
+      <Route path= 'map' component={Principal}/>
+			<Route path= 'info' component={Principal}/>
+    </Route>
+  </Router>, document.getElementById('render-target')
+);
 });
