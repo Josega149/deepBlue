@@ -59,3 +59,51 @@ $(document).ready(function() {
         }
     });
 });
+
+
+/**
+,
+mapUrlByCode: function(code, multiMap) {
+    // var id = code.toLowerCase()+'_merc';
+    // return id;
+    // console.log("CODIGO REGION "+code);
+    var path = 'js/plugins/jvectormap/col-compl.js';
+    //console.log(path);
+    var reg = {
+        'CO-RCA': "Caribe",
+        'CO-RAN': "Andina",
+        'CO-RAM': "Amazonia",
+        'CO-RPA': "Pacifico",
+        'CO-ROR': "Orinoquia",
+        'CO-COMPL': "Nacional"
+    };
+    var stringP = $('#title-h').text();
+    // console.log(stringP);
+    string2 = stringP.split(":");
+    //console.log(string2[0]);
+    // var cuantos = cuantosPozos(reg[code].toUpperCase());
+    if (reg[code] == undefined) {
+        //no hace nada
+    } else {
+
+        stringP = string2[0].concat(": ", reg[code]);
+        //console.log(stringP);
+        var stringP = $('#title-h').text(stringP);
+
+        var estadoPozosAntes = $('#estadoPozos').text();
+        estadoPozosAntes = estadoPozosAntes.split(":")[0];
+        $('#estadoPozos').text(estadoPozosAntes + ": " + reg[code]);
+
+        var estadoEmergenciasPerc = $('#emergenciasPerc').text();
+        estadoEmergenciasPerc = estadoEmergenciasPerc.split(":")[0];
+        $('#emergenciasPerc').text(estadoEmergenciasPerc + ": " + reg[code]);
+
+        var estadoListaEmergen = $('#listaEmergen').text();
+        estadoListaEmergen = estadoListaEmergen.split(":")[0];
+        $('#listaEmergen').text(estadoListaEmergen + ": " + reg[code]);
+
+        cuantosPozos(reg[code].toUpperCase());
+
+    }
+    return path;
+}*/
