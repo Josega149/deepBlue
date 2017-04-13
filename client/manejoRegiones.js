@@ -1,8 +1,5 @@
  $(document).ready(function () {
-     $('.scroll_content').slimscroll({
-         height: '200px'
-     })
-     $(".dial").knob();
+
      var mapData = {
          "CO-RAN": 1135,
          "CO-RCA": 200,
@@ -23,7 +20,7 @@
      var pozoSelecionado=undefined;
      var mapaPozos ={};
 
-
+     /**
      function cuantosPozos(region)
      {
          var cuantos = " ";
@@ -62,57 +59,8 @@
 
         // return cuantos;
      }
-
-     $.ajax({
-         method: "GET",
-         //beforeSend: function(xhr){xhr.setRequestHeader('OilCol-Token',123)},
-         //headers: {'OilCol-Token':'123'},
-         url: "/userActual"
-     }).done(function (msg) {
-
-         console.log("AQUI VIENE EL NOMBRE DEL USER ");
-         console.log(msg);
-
-         if(msg.startsWith("jg.tamura10"))
-         {
-             document.getElementById('campitos').style.visibility ='hidden';
-             msg= "Jose Gabriel Tamura";
-             $('#rolUser').text("Jefe de CAMPO #2");
-             $('#imagenUser').attr("src", "img/Nosotros/Tamu.jpg");
-
-         }
-         if(msg.startsWith("ea.margffoy"))
-         {
-             document.getElementById('campitos').style.visibility ='hidden';
-             msg= "Edgar Margffoy";
-             $('#rolUser').text("Jefe de CAMPO #5");
-             $('#imagenUser').attr("src", "img/Nosotros/Edgar.jpg");
-         }
-         if(msg.startsWith("c.garcia"))
-         {
-             document.getElementById('campitos').style.visibility ='hidden';
-             msg= "Camila Garcia";
-             $('#rolUser').text("Jefe de CAMPO #4");
-             $('#imagenUser').attr("src", "img/Nosotros/Cami.jpg");
-         }
-         if(msg.startsWith("mm.gomez10"))
-         {
-             msg= "Margarita Gomez";
-             $('#imagenUser').attr("src", "img/Nosotros/Margari.jpg");
-         }
-         $('#nombreUser').text(msg);
-
-         var theImg = document.getElementById('imagenUser');
-         theImg.height = 125;
-         theImg.width = 125;
-
-     }).fail(function (msg, textstat) {
-         console.log(textstat);
-     }).always(function (msg) {
-         console.log("buu")
-     });
-
-
+     */
+     /**
      $.ajax({
          method: "GET",
          //beforeSend: function(xhr){xhr.setRequestHeader('OilCol-Token',123)},
@@ -173,6 +121,7 @@
                          console.log(data.info);
                          $("#ener").text(data.info);
                      });*/
+/**
                      $.ajax({
                          method: "GET",
                          url:"/registro/ener/"+pozo.id
@@ -269,25 +218,25 @@
      }).always(function (msg) {
          console.log("buu")
      });
-
-     // $('#world-map').vectorMap({
-     //     map: 'co-compl_merc',
-     //     backgroundColor: "transparent",
-     //     regionStyle: {
-     //         initial: {
-     //             fill: '#7D7D7D',
-     //             "fill-opacity": 1,
-     //             stroke: 'none',
-     //             "stroke-width": 0,
-     //             "stroke-opacity": 0
-     //         }
-     //     },
-     //     series: {
-     //         regions: [{
-     //             values: mapData,
-     //             scale: ["#1ab394", "#22d6b1"],
-     //             normalizeFunction: 'polynomial'
-     //         }]
-     //     }
-     // });
+*/
+      $('#world-map').vectorMap({
+          map: 'co_mill',
+          backgroundColor: "transparent",
+          regionStyle: {
+              initial: {
+                  fill: '#7D7D7D',
+                  "fill-opacity": 1,
+                  stroke: 'none',
+                  "stroke-width": 0,
+                  "stroke-opacity": 0
+              }
+          },
+          series: {
+              regions: [{
+                  values: mapData,
+                  scale: ["#1ab394", "#22d6b1"],
+                  normalizeFunction: 'polynomial'
+              }]
+          }
+      });
  });

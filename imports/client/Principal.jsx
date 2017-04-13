@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import Navigbar from './Navigbar.jsx';
 import HomePage from './HomePage.jsx';
-import Map from './Map.jsx';
+
 export default class Principal extends Component {
 
     render() {
@@ -11,7 +11,8 @@ export default class Principal extends Component {
             <div name="principal">
                 <div className="row wrapper border-bottom white-bg page-heading">
                     <div className="col-lg-9">
-                        <h2 >Información General de Pozos</h2>
+                        <h2 >
+                          Información General de Pozos</h2>
                         <ol className="breadcrumb">
                             <li className="active">
                                 <strong id="title-h">Región: Nacional</strong>
@@ -24,17 +25,19 @@ export default class Principal extends Component {
                         <div className="col-lg-12">
                             <div className="row">
                                 <div className="col-lg-6">
-                                    <div id="world-map" ></div>rtesryseyey
+                                    <div id="world-map"></div>
+
+                                    
                                 </div>
                                 <div className="col-lg-6">
                                     <div className="row">
                                         <div className="col-lg-6">
-                                            <div className="ibox float-e-margins">
-                                                <div className="ibox-title">
-                                                    <span className="label label-primary pull-right">Ahora Mismo</span>
+                                            <div className="data float-e-margins">
+                                                <div className="data-title">
+                                                    <span className="label label-success pull-right">Ahora Mismo</span>
                                                     <h5 id="estadoPozos">Estado de Pozos</h5>
                                                 </div>
-                                                <div className="ibox-content">
+                                                <div className="data-content">
                                                     <div>
                                                         <span>Bien</span>
 
@@ -42,7 +45,7 @@ export default class Principal extends Component {
 
                                                     </div>
                                                     <div className="progress progress-small">
-                                                        <div  className="progress-bar" id="percentageProduccion"></div>
+                                                        <div className="progress-bar" id="percentageProduccion"></div>
                                                     </div>
                                                     <div>
                                                         <span>En riesgo</span>
@@ -56,124 +59,288 @@ export default class Principal extends Component {
                                                         <small className="pull-right" id="numParados"></small>
                                                     </div>
                                                     <div className="progress progress-small">
-                                                        <div  className="progress-bar progress-bar-danger" id="percentageParados"></div>
+                                                        <div className="progress-bar progress-bar-danger" id="percentageParados"></div>
                                                     </div>
                                                     <div>
                                                         <span>Estado critico</span>
                                                         <small className="pull-right" id="numClausurados"></small>
                                                     </div>
                                                     <div className="progress progress-small">
-                                                        <div  className="progress-bar progress-bar-info" id="percentageClausurados"></div>
+                                                        <div className="progress-bar progress-bar-info" id="percentageClausurados"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="col-lg-6">
-                                            <div className="ibox float-e-margins">
-                                                <div className="ibox-title">
-                                                    <span className="label label-danger pull-right">Hoy</span>
-                                                    <h5 id="emergenciasPerc">Emergencias</h5>
-                                                </div>
-                                                <div className="ibox-content">
-                                                    <div className="stat-percent font-bold text-warning">10%
-                                                        <i className="fa fa-level-down"></i>
+
+                                            <div className="row">
+                                                <div className="col-lg-12">
+                                                    <div className="data float-e-margins">
+                                                        <div className="data-title">
+                                                            <span className="label label-success pull-right">Hoy</span>
+                                                            <h5 id="listaEmergen">Lista de Emergencias</h5>
+                                                        </div>
+                                                        <div className="data float-e-margins">
+
+                                                            <div className="data-content">
+
+                                                                <div className="stat-percent font-bold text-warning">10%
+                                                                    <i className="fa fa-level-down"></i>
+                                                                </div>
+                                                                <small>Actualización: {new Date().toDateString()}
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                        <div className="data-content">
+                                                            <div className="scroll_content">
+                                                                <div className="table-responsive">
+                                                                    <table className="table table-hover issue-tracker">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <span className="label label-warning">Andina</span>
+                                                                                </td>
+                                                                                <td className="issue-info">
+                                                                                    <a href="#">
+                                                                                        INCENDIO
+                                                                                    </a>
+                                                                                    <small>
+                                                                                        This is issue with the coresponding note
+                                                                                    </small>
+                                                                                </td>
+                                                                                <td>
+                                                                                    Pozo 1
+                                                                                </td>
+                                                                                <td>
+                                                                                    12.02.2015 10:00 am
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span className="pie">0.52,1.041</span>
+                                                                                    2d
+                                                                                </td>
+                                                                                <td className="text-right">
+                                                                                    <button className="btn btn-white btn-xs">
+                                                                                        Tag</button>
+                                                                                    <button className="btn btn-white btn-xs">
+                                                                                        Mag</button>
+                                                                                    <button className="btn btn-white btn-xs">
+                                                                                        Rag</button>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td>
+                                                                                    <span className="label label-primary">Caribe</span>
+                                                                                </td>
+                                                                                <td className="issue-info">
+                                                                                    <a href="#">
+                                                                                        ELÉCTRICA
+                                                                                    </a>
+                                                                                    <small>
+                                                                                        This is issue with the coresponding note
+                                                                                    </small>
+                                                                                </td>
+                                                                                <td>
+                                                                                    Pozo 6
+                                                                                </td>
+                                                                                <td>
+                                                                                    12.02.2015 10:00 am
+                                                                                </td>
+                                                                                <td>
+                                                                                    <span className="pie">0.52,1.041</span>
+                                                                                    2d
+                                                                                </td>
+                                                                                <td className="text-right">
+                                                                                    <button className="btn btn-white btn-xs">
+                                                                                        Tag</button>
+                                                                                    <button className="btn btn-white btn-xs">
+                                                                                        Mag</button>
+                                                                                    <button className="btn btn-white btn-xs">
+                                                                                        Rag</button>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                    <small>Actualización: {new Date().toDateString()}
-                                                    </small>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row">
-                                        <div className="col-lg-12">
-                                            <div className="ibox float-e-margins">
-                                                <div className="ibox-title">
-                                                    <span className="label label-warning pull-right">Hoy</span>
-                                                    <h5 id="listaEmergen">Lista de Emergencias</h5>
-                                                </div>
-                                                <div className="ibox-content">
-                                                    <div className="scroll_content">
-                                                        <div className="table-responsive">
-                                                            <table className="table table-hover issue-tracker">
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <span className="label label-warning">Andina</span>
-                                                                        </td>
-                                                                        <td className="issue-info">
-                                                                            <a href="#">
-                                                                                INCENDIO
-                                                                            </a>
-                                                                            <small>
-                                                                                This is issue with the coresponding note
-                                                                            </small>
-                                                                        </td>
-                                                                        <td>
-                                                                            Pozo 1
-                                                                        </td>
-                                                                        <td>
-                                                                            12.02.2015 10:00 am
-                                                                        </td>
-                                                                        <td>
-                                                                            <span className="pie">0.52,1.041</span>
-                                                                            2d
-                                                                        </td>
-                                                                        <td className="text-right">
-                                                                            <button className="btn btn-white btn-xs">
-                                                                                Tag</button>
-                                                                            <button className="btn btn-white btn-xs">
-                                                                                Mag</button>
-                                                                            <button className="btn btn-white btn-xs">
-                                                                                Rag</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>
-                                                                            <span className="label label-primary">Caribe</span>
-                                                                        </td>
-                                                                        <td className="issue-info">
-                                                                            <a href="#">
-                                                                                ELÉCTRICA
-                                                                            </a>
-                                                                            <small>
-                                                                                This is issue with the coresponding note
-                                                                            </small>
-                                                                        </td>
-                                                                        <td>
-                                                                            Pozo 6
-                                                                        </td>
-                                                                        <td>
-                                                                            12.02.2015 10:00 am
-                                                                        </td>
-                                                                        <td>
-                                                                            <span className="pie">0.52,1.041</span>
-                                                                            2d
-                                                                        </td>
-                                                                        <td className="text-right">
-                                                                            <button className="btn btn-white btn-xs">
-                                                                                Tag</button>
-                                                                            <button className="btn btn-white btn-xs">
-                                                                                Mag</button>
-                                                                            <button className="btn btn-white btn-xs">
-                                                                                Rag</button>
-                                                                        </td>
-                                                                    </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
 
+                                </div>
+
+                                <div className="col-lg-6">
+                                    <div className="data">
+                                        <div className="data-title">
+                                            <h5 id="infoPozo">Sensor : 58
+                                            </h5>
+                                        </div>
+                                        <div className="data-content">
+                                            <div className="row m-t-sm">
+                                                <div className="col-sm-4">
+                                                    <div className="row">
+                                                        <div className="col-sm-7">
+                                                            <h5 className="m-b-xs">Temperatura</h5>
+                                                        </div>
+                                                        <div className="col-sm-4">
+                                                            <span className="label label-info m-b-xs">Minuto</span>
+                                                        </div>
                                                     </div>
+                                                    <div className="row">
+                                                        <div className="col-sm-3">
+                                                            <i className="wi wi-celsius fa-3x"></i>
+                                                        </div>
+                                                        <div className="col-sm-9">
+                                                            <h1 id="temp" className="no-margins">25</h1>Celsius
+                                                        </div>
+                                                    </div>
+                                                    <div className="font-bold text-navy">98%
+                                                        <i className="fa fa-bolt"></i>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-4">
+                                                    <div className="row">
+                                                        <div className="col-sm-8">
+                                                            <h5 className="m-b-xs">Caudal
+                                                            </h5>
+                                                        </div>
+                                                        <div className="col-sm-4">
+                                                            <span className="label label-info m-b-xs">24h</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-sm-4">
+                                                            <i className="wi wi-windy fa-3x"></i>
+                                                        </div>
+                                                        <div className="col-sm-6">
+                                                            <h1 id="barr" className="no-margins">25</h1>Barriles
+                                                        </div>
+                                                    </div>
+                                                    <div className="font-bold text-navy">98%
+                                                        <i className="fa fa-bolt"></i>
+                                                    </div>
+                                                </div>
+                                                <div className="col-sm-4">
+                                                    <div className="row">
+                                                        <div className="col-sm-8">
+                                                            <h5 className="m-b-xs">Energía</h5>
+                                                        </div>
+                                                        <div className="col-sm-1">
+                                                            <span className="label label-info m-b-xs">24h</span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="row">
+                                                        <div className="col-sm-3">
+                                                            <i className="wi wi-lightning fa-3x"></i>
+                                                        </div>
+                                                        <div className="col-sm-9">
+                                                            <h1 id="ener" className="no-margins">1000</h1>kW/h
+                                                        </div>
+                                                    </div>
+                                                    <div className="font-bold text-navy">98%
+                                                        <i className="fa fa-bolt"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <div className="data float-e-margins">
+                                        <div className="data-title">
+                                            <span className="label label-success pull-right">Hoy</span>
+                                            <h5>Generar Reporte</h5>
+                                        </div>
+                                        <div className="data-content">
+                                            <div className="row">
+                                                <div className="col-lg-12">
+                                                    <button data-toggle="dropdown" className="btn btn-primary btn-block dropdown-toggle">Reporte por Zona
+                                                        <span className="caret"></span>
+                                                    </button>
+                                                    <ul className="dropdown-menu">
+                                                        <li>
+                                                            <a href="#" className="font-bold">Mensual</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="font-bold">Trimestral</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="font-bold">Semestral</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="font-bold">Anual</a>
+                                                        </li>
+                                                        <li className="divider"></li>
+                                                        <li>
+                                                            <a href="#">Más opciones</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-lg-12">
+                                                    <button data-toggle="dropdown" className="btn btn-default btn-block dropdown-toggle">Reporte por Campo
+                                                        <span className="caret"></span>
+                                                    </button>
+                                                    <ul className="dropdown-menu">
+                                                        <li>
+                                                            <a href="#" className="font-bold">Mensual</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="font-bold">Trimestral</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="font-bold">Semestral</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="font-bold">Anual</a>
+                                                        </li>
+                                                        <li className="divider"></li>
+                                                        <li>
+                                                            <a href="#">Más opciones</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div className="row">
+                                                <div className="col-lg-12">
+                                                    <button data-toggle="dropdown" className="btn btn-default btn-block dropdown-toggle">Reporte por Pozo
+                                                        <span className="caret"></span>
+                                                    </button>
+                                                    <ul className="dropdown-menu">
+                                                        <li>
+                                                            <a href="#" className="font-bold">Mensual</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="font-bold">Trimestral</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="font-bold">Semestral</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" className="font-bold">Anual</a>
+                                                        </li>
+                                                        <li className="divider"></li>
+                                                        <li>
+                                                            <a href="#">Más opciones</a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
+
                     </div>
                 </div>
             </div>
-  );
-}
+
+        );
+    }
 }

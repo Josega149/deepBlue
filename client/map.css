@@ -1,0 +1,6 @@
+#world-map{
+  border-style: solid;
+  box-sizing: border-box;
+  height: 20em;
+  background-size: cover;
+}
