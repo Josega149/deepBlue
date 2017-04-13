@@ -1,76 +1,8 @@
 $(document).ready(function () {
 
-    var mapData = {
-        "CO-RAN": 1135,
-        "CO-RCA": 200,
-        "CO-BOG": 200
-            /**"SA": 200,
-            "CA": 1300,
-            "DE": 220,
-            "FR": 540,
-            "CN": 120,
-            "AU": 760,
-            "BR": 550,
-            "IN": 200,
-            "GB": 120,
-            "RU": 2000**/
-    };
-
-
     var pozoSelecionado=undefined;
     var mapaPozos ={};
 
-    /**
-    function cuantosPozos(region)
-    {
-        var cuantos = " ";
-        //if(region==undefined){region = "NACIONAL";}
-        $.ajax({
-            method: "GET",
-            url: "/pozosDeCampos/"+region
-        }).done(function (msg)
-        {
-            var msgJ = JSON.parse(msg);
-            console.log("Mensaje que llega de traer del metodo "+msgJ+" region "+region);
-            console.log(msgJ);
-
-            $('#numProduccion').text(msgJ.produccion+"/"+msgJ.cuantos);
-            $('#percentageProduccion').css("width", (msgJ.produccion*100/msgJ.cuantos)+"%");
-
-            $('#numAbiertos').text(msgJ.abiertos+"/"+msgJ.cuantos);
-            $('#percentageAbiertos').css("width",(msgJ.abiertos*100/msgJ.cuantos)+"%");
-
-            $('#numParados').text(msgJ.parados+"/"+msgJ.cuantos);
-            $('#percentageParados').css("width",(msgJ.parados*100/msgJ.cuantos)+"%");
-
-            $('#numClausurados').text(msgJ.clausurados+"/"+msgJ.cuantos);
-            $('#percentageClausurados').css("width",(msgJ.clausurados*100/msgJ.cuantos)+"%");
-
-            var  random = Math.random()*5;
-            //console.log("PORCENTAJEEE JUPUEASDF "+random);  NO FUNCIONA TODAVIA
-            //$('#emergenciasIbox').css("height", random/100 + "%")
-
-        }).fail(function (msg, textstat)
-        {
-            console.log(textstat + "error en funcion cuantosPozos");
-        }).always(function (msg) {
-            console.log("cuantos Pozos acaba de salir")
-        });
-
-       // return cuantos;
-    }
-    */
-    /**
-    $.ajax({
-        method: "GET",
-        //beforeSend: function(xhr){xhr.setRequestHeader('OilCol-Token',123)},
-        //headers: {'OilCol-Token':'123'},
-        url: "/pozo"
-    }).done(function (msg) {
-
-        cuantosPozos("NACIONAL");// se hace siempre al principio
-
-        console.log(map);
         var convert=[];
         console.log(msg[1262]);
         for(var i=0;i<msg.length;i++){
@@ -88,7 +20,6 @@ $(document).ready(function () {
             var n = {latLng:[msg[i].lat,msg[i].lon],name:msg[i].id,style:{fill:color}};
             convert.push(n);
         }
-        //$('#numPozos').text(cuantosPozos()+"/1200");
         console.log(convert);
         var map = new jvm.MultiMap({
             container: $('#world-map'),
@@ -117,11 +48,11 @@ $(document).ready(function () {
                     var pozo = mapaPozos[pozoSelecionado];
                     $('#infoPozo').text("pozo: "+ pozoSelecionado);
 
-                    /*$.get("/registro/ener/"+pozo.id,function(data,status){
+                    $.get("/registro/ener/"+pozo.id,function(data,status){
                         console.log(data.info);
                         $("#ener").text(data.info);
                     });*/
-/**
+
                     $.ajax({
                         method: "GET",
                         url:"/registro/ener/"+pozo.id
@@ -211,32 +142,4 @@ $(document).ready(function () {
                 return path;
             }
 
-        })
-
-    }).fail(function (msg, textstat) {
-        console.log(textstat);
-    }).always(function (msg) {
-        console.log("buu")
-    });
-*/
-     $('#world-map').vectorMap({
-         map: 'world_mill',
-         backgroundColor: "transparent",
-         regionStyle: {
-             initial: {
-                 fill: '#7D7D7D',
-                 "fill-opacity": 1,
-                 stroke: 'none',
-                 "stroke-width": 0,
-                 "stroke-opacity": 0
-             }
-         },
-         series: {
-             regions: [{
-                 values: {},
-                 scale: ["#1ab394", "#22d6b1"],
-                 normalizeFunction: 'polynomial'
-             }]
-         }
-     });
-});
+        });

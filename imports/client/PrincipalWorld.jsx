@@ -8,7 +8,7 @@ export default class PrincipalWorld extends Component {
 
     render() {
         return (
-            <div name="principal">
+            <div name="principal row">
                 <div className="row wrapper border-bottom white-bg page-heading">
                     <div className="col-lg-12">
                         <h2 >
@@ -177,7 +177,7 @@ export default class PrincipalWorld extends Component {
                                                             <h5 className="m-b-xs">Temperatura</h5>
                                                         </div>
                                                         <div className="col-sm-4">
-                                                            <span className="label label-info m-b-xs">Minuto</span>
+                                                            <span className="label label-info m-b-xs">Min</span>
                                                         </div>
                                                     </div>
                                                     <div className="row">
@@ -195,11 +195,11 @@ export default class PrincipalWorld extends Component {
                                                 <div className="col-sm-4">
                                                     <div className="row">
                                                         <div className="col-sm-8">
-                                                            <h5 className="m-b-xs">Caudal
+                                                            <h5 className="m-b-xs">PH
                                                             </h5>
                                                         </div>
                                                         <div className="col-sm-4">
-                                                            <span className="label label-info m-b-xs">24h</span>
+                                                            <span className="label label-info m-b-xs">Hora</span>
                                                         </div>
                                                     </div>
                                                     <div className="row">
@@ -207,7 +207,7 @@ export default class PrincipalWorld extends Component {
                                                             <i className="wi wi-windy fa-3x"></i>
                                                         </div>
                                                         <div className="col-sm-6">
-                                                            <h1 id="barr" className="no-margins">25</h1>Barriles
+                                                            <h1 id="barr" className="no-margins">8.179</h1>0-14
                                                         </div>
                                                     </div>
                                                     <div className="font-bold text-navy">98%
@@ -217,10 +217,10 @@ export default class PrincipalWorld extends Component {
                                                 <div className="col-sm-4">
                                                     <div className="row">
                                                         <div className="col-sm-8">
-                                                            <h5 className="m-b-xs">Energía</h5>
+                                                            <h5 className="m-b-xs">Salinidad</h5>
                                                         </div>
                                                         <div className="col-sm-1">
-                                                            <span className="label label-info m-b-xs">24h</span>
+                                                            <span className="label label-info m-b-xs">Hora</span>
                                                         </div>
                                                     </div>
                                                     <div className="row">
@@ -228,10 +228,10 @@ export default class PrincipalWorld extends Component {
                                                             <i className="wi wi-lightning fa-3x"></i>
                                                         </div>
                                                         <div className="col-sm-9">
-                                                            <h1 id="ener" className="no-margins">1000</h1>kW/h
+                                                            <h1 id="ener" className="no-margins">3%</h1>halinidad
                                                         </div>
                                                     </div>
-                                                    <div className="font-bold text-navy">98%
+                                                    <div className="font-bold text-navy">3%
                                                         <i className="fa fa-bolt"></i>
                                                     </div>
                                                 </div>
@@ -274,7 +274,7 @@ export default class PrincipalWorld extends Component {
                                             </div>
                                             <div className="row">
                                                 <div className="col-lg-12">
-                                                    <button data-toggle="dropdown" className="btn btn-default btn-block dropdown-toggle">Reporte por Campo
+                                                    <button data-toggle="dropdown" className="btn btn-default btn-block dropdown-toggle">Reporte por emergencia
                                                         <span className="caret"></span>
                                                     </button>
                                                     <ul className="dropdown-menu">
@@ -299,7 +299,7 @@ export default class PrincipalWorld extends Component {
                                             </div>
                                             <div className="row">
                                                 <div className="col-lg-12">
-                                                    <button data-toggle="dropdown" className="btn btn-default btn-block dropdown-toggle">Reporte por Pozo
+                                                    <button data-toggle="dropdown" className="btn btn-default btn-block dropdown-toggle">Reporte por sensor
                                                         <span className="caret"></span>
                                                     </button>
                                                     <ul className="dropdown-menu">
