@@ -1,6 +1,24 @@
+#colombia-map{
+  border-style: solid;
+  box-sizing: border-box;
+  height: 30em;
+  background-size: cover;
+}
 #world-map{
   border-style: solid;
   box-sizing: border-box;
-  height: 20em;
+  height: 30em;
   background-size: cover;
+}
+
+.State{
+  box-sizing: border-box;
+  height: 30em;
+  margin:0.3em;
+}
+
+.Emergencies{
+  box-sizing: border-box;
+  height: 30em;
+  margin:0.3em;
 }

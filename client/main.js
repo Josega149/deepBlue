@@ -7,6 +7,7 @@ import {browserHistory, Router, Route, IndexRoute} from 'react-router';
 import App from '../imports/client/App.jsx';
 import HomePage from '../imports/client/HomePage.jsx';
 import Principal from '../imports/client/Principal.jsx';
+import PrincipalWorld from '../imports/client/PrincipalWorld.jsx';
 import Info from '../imports/client/Info.jsx';
 
 Meteor.startup(() => {
@@ -15,6 +16,7 @@ Meteor.startup(() => {
     <Route path='/' component={App}>
       <IndexRoute component={HomePage} />
       <Route path= 'map' component={Principal}/>
+      <Route path= 'mapW' component={PrincipalWorld}/>
 			<Route path= 'info' component={Info}/>
     </Route>
   </Router>, document.getElementById('render-target')

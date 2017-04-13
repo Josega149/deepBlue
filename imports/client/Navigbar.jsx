@@ -28,7 +28,7 @@ export default class Navigbar extends Component {
                                 </LinkContainer>
                               </NavDropdown>
                               <NavDropdown  title="Mundo" id="Mundo">
-                                <LinkContainer to="/map">
+                                <LinkContainer to="/mapW">
                                   <MenuItem >Mapa</MenuItem>
                                 </LinkContainer>
                                 <LinkContainer to="/info">

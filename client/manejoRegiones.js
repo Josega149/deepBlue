@@ -219,7 +219,7 @@
          console.log("buu")
      });
 */
-      $('#world-map').vectorMap({
+      $('#colombia-map').vectorMap({
           map: 'co_mill',
           backgroundColor: "transparent",
           regionStyle: {
