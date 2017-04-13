@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     var pozoSelecionado = undefined;
+    var mapaPozos=[]
     var sensor = {
         _id: 0,
         avgTemp: 20,
@@ -16,6 +17,7 @@ $(document).ready(function() {
     var convert = [];
     console.log(msg);
     for (var i = 0; i < msg.length; i++) {
+      mapaPozos[msg[i]._id] = msg[i];
         var color = undefined;
         if (msg[i].lastTemp > 30) {
             color = "green";

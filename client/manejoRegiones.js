@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
     var pozoSelecionado = undefined;
+    var mapaPozos = [];
     var sensor = {
         _id: 0,
         avgTemp: 20,
@@ -16,6 +17,7 @@ $(document).ready(function() {
     var convert = [];
     console.log(msg);
     for (var i = 0; i < msg.length; i++) {
+      mapaPozos[msg[i]._id] = msg[i];
         var color = undefined;
         if (msg[i].lastTemp > 30) {
             color = "green";
@@ -51,34 +53,14 @@ $(document).ready(function() {
         },
         markers: convert,
         onMarkerClick: function(event, index) {
+          console.log("undio click");
             pozoSelecionado = map.params.main.markers[index].name;
             var pozo = mapaPozos[pozoSelecionado];
+            //hasta aqui funciona perfecto
             $('#infoPozo').text("pozo: " + pozoSelecionado);
-            $.get("/registro/ener/" + pozo.id, function(data, status) {
-                console.log(data.info);
-                $("#ener").text(data.info);
-            });
-            $.ajax({
-                method: "GET",
-                url: "/registro / ener / " + pozo.id
-            }).done(function(msg) {
-                console.log(msg["info"]);
-                $("#ener").text(msg["info"]);
-            });
-            $.ajax({
-                method: "GET",
-                url: "/registro/temp/" + pozo.id
-            }).done(function(msg) {
-                console.log(msg["info"]);
-                $("#temp").text(msg["info"]);
-            });
-            $.ajax({
-                method: "GET",
-                url: "/registro/barr/" + pozo.id
-            }).done(function(msg) {
-                console.log(msg["info"]);
-                $("#barr").text(msg["info"]);
-            });
+            $("#ener").text(pozo.lastPh);
+            $("#temp").text(pozo.lastTemp);
+            $("#barr").text(pozo.lastSal);
             console.log(pozoSelecionado);
         },
         markerStyle: {

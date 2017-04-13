@@ -96,18 +96,18 @@ export default class Principal extends Component {
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>
-                                                                                    <span className="label label-warning">Andina</span>
+                                                                                    <span className="label label-warning">Pacifico</span>
                                                                                 </td>
                                                                                 <td className="issue-info">
                                                                                     <a href="#">
-                                                                                        INCENDIO
+                                                                                        PH elevado
                                                                                     </a>
                                                                                     <small>
-                                                                                        This is issue with the coresponding note
+                                                                                        Ph sumamente elevado en sensor 3
                                                                                     </small>
                                                                                 </td>
                                                                                 <td>
-                                                                                    Pozo 1
+                                                                                    Sensor 3
                                                                                 </td>
                                                                                 <td>
                                                                                     12.02.2015 10:00 am
@@ -131,14 +131,14 @@ export default class Principal extends Component {
                                                                                 </td>
                                                                                 <td className="issue-info">
                                                                                     <a href="#">
-                                                                                        ELÉCTRICA
+                                                                                        Alta temperatura
                                                                                     </a>
                                                                                     <small>
-                                                                                        This is issue with the coresponding note
+                                                                                        Se ha detectado un incremento de 3 grados en el sensor 8
                                                                                     </small>
                                                                                 </td>
                                                                                 <td>
-                                                                                    Pozo 6
+                                                                                    sensor 8
                                                                                 </td>
                                                                                 <td>
                                                                                     12.02.2015 10:00 am
@@ -173,8 +173,7 @@ export default class Principal extends Component {
                                 <div className="col-lg-6">
                                     <div className="data">
                                         <div className="data-title">
-                                            <h5 id="infoPozo">Sensor : 58
-                                            </h5>
+                                            <h5 id="infoPozo">Sensor : 58</h5>
                                         </div>
                                         <div className="data-content">
                                             <div className="row m-t-sm">
