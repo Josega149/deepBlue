@@ -74,7 +74,6 @@ export default class Principal extends Component {
         console.log(convert);
     }
     $(document).ready(function() {
-      while(true){
         $('#colombia-map').vectorMap({
           map: 'co_mill',
           backgroundColor: "transparent",
@@ -114,43 +113,7 @@ export default class Principal extends Component {
       $('#porcentajeBien').width( (100*cuantosBien/total)+'%');
       $('#porcentajeMedio').width((100*cuantosMedio/total)+'%');
       $('#porcentajeMal').width((100*cuantosMal/total)+'%');
-      }
-      setTimeout(function(){
-        //do what you need here
-      }, 2000);
-      cuantosBien =0;;
-      cuantosMedio =0;
-      cuantosMal=0;
 
-      for(var t=0;t< convert.length;t++){
-        convert[t].sospechosidad =  (convert[t].sospechosidad+ Math.random()*4)/Math.random()*2;
-      }
-      for (var i = 0; i < convert.length; i++) {
-          var color = undefined;
-          if (convert[i].sospechosidad < 3) {
-              color = "green";
-              cuantosBien++;
-          } else if (convert[i].sospechosidad < 4) {
-              color = "yellow";
-              cuantosMedio++;
-          } else if (convert[i].sospechosidad < 5) {
-              color = "red";
-              cuantosMal++;
-          }
-          else{
-            color = "black";
-            cuantosMal++;
-          }
-          convert[i] = {
-              latLng: [
-                  convert[i].lat, convert[i].lon
-              ],
-              name: convert[i]._id,
-              style: {
-                  fill: color
-              }
-          };
-      }
     });
   }
 
@@ -176,7 +139,7 @@ export default class Principal extends Component {
                                             <div className="data float-e-margins">
                                                 <div className="data-title">
                                                     <span className="label label-success pull-right">Ahora Mismo</span>
-                                                    <h5 id="estadoPozos">Estado de Contratos</h5>
+                                                    <h5 id="estadoPozos">Estado de Sensores</h5>
                                                     <h4 id="total"></h4>
                                                 </div>
                                                 <div className="data-content">
