@@ -2,74 +2,210 @@ import React, {Component} from 'react';
 import {render} from 'react-dom';
 import {Well, Thumbnail} from 'react-bootstrap';
 import Navigbar from './Navigbar.jsx';
-import HomePage from './HomePage.jsx';
+import lectorSensores1 from './lectorSensores1.js';
+
+//import manejoRegiones from '../../client/manejoRegiones.js'
 
 export default class Principal extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      error: '',
+    };
+  }
+  dibujar(){
+    console.log("dibujando mapa");
+      var pozoSelecionado = undefined;
+      var mapaPozos = [];
+      var sensor = {
+          _id: 0,
+          avgTemp: 20,
+          avgPh: 8,
+          avgSalt: 4,
+          lat: 6.544560,
+          lon: -70.019409,
+          lastTemp: 40,
+          lastPh: 8,
+          lastSal: 4
+      };
+      //var msg = [sensor];
+
+      // hace un llamado a un metodo
+      // se supone que este es el tamaño de la lista de arrays con contratos
+      // cada lista tiene un numero de contratos que se puede recuperar por memoria
+      var cuantosLotesDeObjetos = 1; //manejadorSecop1.cuantosLotesDeObjetos();
+
+      //se itera sobre el array de listas para recuperar a memoria cada lista con n contratos
+      //en convert quedan todos los contratos a ser representados
+      var convert = [];
+      var cuantosBien=0;
+      var cuantosMedio=0;
+      var cuantosMal=0;
+
+      for(var w=0;w<cuantosLotesDeObjetos;w++){
+        //trae la proxima lista de contratos de tamaño n
+        var msg = lectorSensores1.traerProximoLote();
+        console.log(msg);
+        for (var i = 0; i < msg.length; i++) {
+          mapaPozos[msg[i]._id] = msg[i];
+            var color = undefined;
+            if (msg[i].sospechosidad < 3) {
+                color = "green";
+                cuantosBien++;
+            } else if (msg[i].sospechosidad < 4) {
+                color = "yellow";
+                cuantosMedio++;
+            } else if (msg[i].sospechosidad < 5) {
+                color = "red";
+                cuantosMal++;
+            }
+            var n = {
+                latLng: [
+                    msg[i].lat, msg[i].lon
+                ],
+                name: msg[i]._id,
+                style: {
+                    fill: color
+                }
+            };
+            convert.push(n);
+        }
+        //aquí ya estan todos los sensores a ser dibujados
+        console.log(convert);
+    }
+    $(document).ready(function() {
+      while(true){
+        $('#colombia-map').vectorMap({
+          map: 'co_mill',
+          backgroundColor: "transparent",
+          regionStyle: {
+              initial: {
+                  fill: '#7D7D7D',
+                  "fill-opacity": 1,
+                  stroke: 'none',
+                  "stroke-width": 0,
+                  "stroke-opacity": 0
+              }
+          },
+          markers: convert,
+          onMarkerClick: function(event, index) {
+            console.log("undio click");
+              pozoSelecionado = map.params.main.markers[index].name;
+              var pozo = mapaPozos[pozoSelecionado];
+              //hasta aqui funciona perfecto
+              $('#infoPozo').text("pozo: " + pozoSelecionado);
+              $("#ener").text(pozo.lastPh);
+              $("#temp").text(pozo.lastTemp);
+              $("#barr").text(pozo.lastSal);
+              console.log(pozoSelecionado);
+          },
+          markerStyle: {
+              initial: {
+                  fill: '#F8E23B',
+                  stroke: '#383f47'
+              }
+          }
+      });
+      var total = cuantosBien + cuantosMedio + cuantosMal;
+      $('#total').text(total);
+      $('#numBien').text(cuantosBien);
+      $('#numMedio').text(cuantosMedio);
+      $('#numMal').text(cuantosMal);
+      $('#porcentajeBien').width( (100*cuantosBien/total)+'%');
+      $('#porcentajeMedio').width((100*cuantosMedio/total)+'%');
+      $('#porcentajeMal').width((100*cuantosMal/total)+'%');
+      }
+      setTimeout(function(){
+        //do what you need here
+      }, 2000);
+      cuantosBien =0;;
+      cuantosMedio =0;
+      cuantosMal=0;
+
+      for(var t=0;t< convert.length;t++){
+        convert[t].sospechosidad =  (convert[t].sospechosidad+ Math.random()*4)/Math.random()*2;
+      }
+      for (var i = 0; i < convert.length; i++) {
+          var color = undefined;
+          if (convert[i].sospechosidad < 3) {
+              color = "green";
+              cuantosBien++;
+          } else if (convert[i].sospechosidad < 4) {
+              color = "yellow";
+              cuantosMedio++;
+          } else if (convert[i].sospechosidad < 5) {
+              color = "red";
+              cuantosMal++;
+          }
+          else{
+            color = "black";
+            cuantosMal++;
+          }
+          convert[i] = {
+              latLng: [
+                  convert[i].lat, convert[i].lon
+              ],
+              name: convert[i]._id,
+              style: {
+                  fill: color
+              }
+          };
+      }
+    });
+  }
 
     render() {
+
         return (
             <div name="principal">
                 <div className="row wrapper border-bottom white-bg page-heading">
                     <div className="col-lg-12">
-                        <h2 >
-                          Información General del ambiente coralino</h2>
-                        <ol className="breadcrumb">
-                            <li className="active">
-                                <strong id="title-h">Región: Nacional</strong>
-                            </li>
-                        </ol>
+                        <h2 className="breadcrumb">Información General de los  sensores maritimos</h2>
                     </div>
                 </div>
                 <div className="wrapper wrapper-content">
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="row">
-                                <div className="col-lg-5">
+                                <div className="col-lg-7">
                                     <div id="colombia-map"></div>
                                 </div>
-                                <div className="col-lg-7">
+                                <div className="col-lg-5">
                                     <div className="row">
-                                        <Thumbnail className="col-lg-5 State">
+                                        <Thumbnail className="col-lg-4 State">
                                             <div className="data float-e-margins">
                                                 <div className="data-title">
                                                     <span className="label label-success pull-right">Ahora Mismo</span>
-                                                    <h5 id="estadoPozos">Estado ecosistema</h5>
+                                                    <h5 id="estadoPozos">Estado de Contratos</h5>
+                                                    <h4 id="total"></h4>
                                                 </div>
                                                 <div className="data-content">
                                                     <div>
                                                         <span>Bien</span>
-
-                                                        <small className="pull-right" id="numProduccion"></small>
-
+                                                        <small className="pull-right" id="numBien"></small>
                                                     </div>
-                                                    <div className="progress progress-small">
-                                                        <div className="progress-bar" id="percentageProduccion"></div>
+                                                    <div className="progress">
+                                                        <div className="progress-bar progress-bar-success" id="porcentajeBien"></div>
                                                     </div>
                                                     <div>
                                                         <span>En riesgo</span>
-                                                        <small className="pull-right" id="numAbiertos"></small>
+                                                        <small className="pull-right" id="numMedio"></small>
                                                     </div>
-                                                    <div className="progress progress-small">
-                                                        <div className="progress-bar progress-bar-warning" id="percentageAbiertos"></div>
+                                                    <div className="progress">
+                                                        <div className="progress-bar progress-bar-warning" id="porcentajeMedio"></div>
                                                     </div>
                                                     <div>
                                                         <span>Condiciones anormales</span>
-                                                        <small className="pull-right" id="numParados"></small>
+                                                        <small className="pull-right" id="numMal"></small>
                                                     </div>
-                                                    <div className="progress progress-small">
-                                                        <div className="progress-bar progress-bar-danger" id="percentageParados"></div>
-                                                    </div>
-                                                    <div>
-                                                        <span>Estado critico</span>
-                                                        <small className="pull-right" id="numClausurados"></small>
-                                                    </div>
-                                                    <div className="progress progress-small">
-                                                        <div className="progress-bar progress-bar-info" id="percentageClausurados"></div>
+                                                    <div className="progress">
+                                                        <div className="progress-bar progress-bar-danger" id="porcentajeMal"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </Thumbnail>
-                                        <Thumbnail className="col-lg-6 Emergencies">
+                                        <div className="col-md-1"></div>
+                                        <Thumbnail className="col-lg-7 Emergencies">
 
                                             <div className="row">
                                                 <div className="col-lg-12">
@@ -96,64 +232,40 @@ export default class Principal extends Component {
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>
-                                                                                    <span className="label label-warning">Pacifico</span>
-                                                                                </td>
-                                                                                <td className="issue-info">
-                                                                                    <a href="#">
-                                                                                        PH elevado
-                                                                                    </a>
-                                                                                    <small>
-                                                                                        Ph sumamente elevado en sensor 3
-                                                                                    </small>
-                                                                                </td>
-                                                                                <td>
-                                                                                    Sensor 3
-                                                                                </td>
-                                                                                <td>
-                                                                                    12.02.2015 10:00 am
-                                                                                </td>
-                                                                                <td>
-                                                                                    <span className="pie">0.52,1.041</span>
-                                                                                    2d
-                                                                                </td>
-                                                                                <td className="text-right">
-                                                                                    <button className="btn btn-white btn-xs">
-                                                                                        Tag</button>
-                                                                                    <button className="btn btn-white btn-xs">
-                                                                                        Mag</button>
-                                                                                    <button className="btn btn-white btn-xs">
-                                                                                        Rag</button>
-                                                                                </td>
-                                                                            </tr>
-                                                                            <tr>
-                                                                                <td>
                                                                                     <span className="label label-primary">Caribe</span>
                                                                                 </td>
                                                                                 <td className="issue-info">
                                                                                     <a href="#">
-                                                                                        Alta temperatura
+                                                                                        Salinidad superior al 5%
                                                                                     </a>
                                                                                     <small>
-                                                                                        Se ha detectado un incremento de 3 grados en el sensor 8
+                                                                                        Se detecto salinidad por valores superiores al 5%
                                                                                     </small>
                                                                                 </td>
                                                                                 <td>
-                                                                                    sensor 8
+                                                                                    <small className="center"><strong>ID_Sensor: 987sf8ef</strong></small>
                                                                                 </td>
                                                                                 <td>
                                                                                     12.02.2015 10:00 am
                                                                                 </td>
+                                                                            </tr>
+                                                                            <tr>
                                                                                 <td>
-                                                                                    <span className="pie">0.52,1.041</span>
-                                                                                    2d
+                                                                                    <span className="label label-primary">Andina</span>
                                                                                 </td>
-                                                                                <td className="text-right">
-                                                                                    <button className="btn btn-white btn-xs">
-                                                                                        Tag</button>
-                                                                                    <button className="btn btn-white btn-xs">
-                                                                                        Mag</button>
-                                                                                    <button className="btn btn-white btn-xs">
-                                                                                        Rag</button>
+                                                                                <td className="issue-info">
+                                                                                    <a href="#">
+                                                                                        Temperaturas de 25°
+                                                                                    </a>
+                                                                                    <small>
+                                                                                        Se han detectado temperaturas 10% superiores a lo normal
+                                                                                    </small>
+                                                                                </td>
+                                                                                <td>
+                                                                                    <small><strong>ID_Sensor: w9rt87sf</strong></small>
+                                                                                </td>
+                                                                                <td>
+                                                                                    12.02.2015 10:00 am
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>
@@ -333,9 +445,10 @@ export default class Principal extends Component {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
+                {this.dibujar()}
+
             </div>
 
         );
