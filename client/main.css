@@ -3,6 +3,24 @@
 *{
   /*border-style: solid;*/
 }
+.navbar-default{
+  padding-left: 25%;
+}
+
+.imagenCoralCare{
+  background-image: url("/Azul profundo.png") ;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  height: 8em;
+  width: 8em;
+}
+.imagenCoralCare:hover{
+  cursor: pointer;
+}
+.centerNav{
+  text-align: center;
+}
 
 .dropdown-menu>.active>a, .dropdown-menu>.active>a:focus, .dropdown-menu>.active>a:hover {
     background-color: #2e6da4;
