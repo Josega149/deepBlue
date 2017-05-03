@@ -49,13 +49,13 @@ export default class PrincipalWorld extends Component {
         for (var i = 0; i < msg.length; i++) {
           mapaPozos[msg[i]._id] = msg[i];
             var color = undefined;
-            if (msg[i].sospechosidad < 3) {
+            if (msg[i].estado < 2.5) {
                 color = "green";
                 cuantosBien++;
-            } else if (msg[i].sospechosidad < 4) {
+            } else if (msg[i].estado < 4.3) {
                 color = "yellow";
                 cuantosMedio++;
-            } else if (msg[i].sospechosidad < 5) {
+            } else {
                 color = "red";
                 cuantosMal++;
             }
@@ -139,7 +139,7 @@ export default class PrincipalWorld extends Component {
                                             <div className="data float-e-margins">
                                                 <div className="data-title">
                                                     <span className="label label-success pull-right">Ahora Mismo</span>
-                                                    <h5 id="estadoPozos">Estado de Contratos</h5>
+                                                    <h5 id="estadoPozos">Estado de Sensores</h5>
                                                     <h4 id="total"></h4>
                                                 </div>
                                                 <div className="data-content">
@@ -195,18 +195,18 @@ export default class PrincipalWorld extends Component {
                                                                         <tbody>
                                                                             <tr>
                                                                                 <td>
-                                                                                    <span className="label label-primary">Caribe</span>
+                                                                                    <span className="label label-primary">Mexico</span>
                                                                                 </td>
                                                                                 <td className="issue-info">
                                                                                     <a href="#">
-                                                                                        Salinidad superior al 5%
+                                                                                        Acidez superior al 7%
                                                                                     </a>
                                                                                     <small>
-                                                                                        Se detecto salinidad por valores superiores al 5%
+                                                                                        Se detecto acidez por valores superiores al 7%
                                                                                     </small>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <small className="center"><strong>ID_Sensor: 987sf8ef</strong></small>
+                                                                                    <small className="center"><strong>ID_Sensor: p87sf8ef</strong></small>
                                                                                 </td>
                                                                                 <td>
                                                                                     12.02.2015 10:00 am
@@ -214,18 +214,18 @@ export default class PrincipalWorld extends Component {
                                                                             </tr>
                                                                             <tr>
                                                                                 <td>
-                                                                                    <span className="label label-primary">Andina</span>
+                                                                                    <span className="label label-primary">Australia</span>
                                                                                 </td>
                                                                                 <td className="issue-info">
                                                                                     <a href="#">
-                                                                                        Temperaturas de 25°
+                                                                                        Temperaturas de 29°
                                                                                     </a>
                                                                                     <small>
-                                                                                        Se han detectado temperaturas 10% superiores a lo normal
+                                                                                        Se han detectado temperaturas 15% superiores a lo normal
                                                                                     </small>
                                                                                 </td>
                                                                                 <td>
-                                                                                    <small><strong>ID_Sensor: w9rt87sf</strong></small>
+                                                                                    <small><strong>ID_Sensor: m9rt87sf</strong></small>
                                                                                 </td>
                                                                                 <td>
                                                                                     12.02.2015 10:00 am
