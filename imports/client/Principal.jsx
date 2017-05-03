@@ -49,13 +49,13 @@ export default class Principal extends Component {
         for (var i = 0; i < msg.length; i++) {
           mapaPozos[msg[i]._id] = msg[i];
             var color = undefined;
-            if (msg[i].sospechosidad < 3) {
+            if (msg[i].estado < 2.5) {
                 color = "green";
                 cuantosBien++;
-            } else if (msg[i].sospechosidad < 4) {
+            } else if (msg[i].estado < 4.3) {
                 color = "yellow";
                 cuantosMedio++;
-            } else if (msg[i].sospechosidad < 5) {
+            } else {
                 color = "red";
                 cuantosMal++;
             }
