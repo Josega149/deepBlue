@@ -12,10 +12,10 @@ export default class Navigbar extends Component {
                   <Navbar.Collapse >
                     <Nav className="bod">
                       <NavDropdown  title="Informate" >
-                        <LinkContainer to="/info">
+                        <LinkContainer to="/problematica">
                           <MenuItem >Problematica</MenuItem>
                         </LinkContainer>
-                        <LinkContainer to="/info">
+                        <LinkContainer to="/queHacer">
                           <MenuItem >¿Que hacer?</MenuItem>
                         </LinkContainer>
                       </NavDropdown>
