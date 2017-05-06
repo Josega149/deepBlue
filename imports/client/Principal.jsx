@@ -13,6 +13,7 @@ export default class Principal extends Component {
       error: '',
     };
   }
+
   dibujar(){
     console.log("dibujando mapa");
       var pozoSelecionado = undefined;
@@ -89,14 +90,12 @@ export default class Principal extends Component {
           markers: convert,
           onMarkerClick: function(event, index) {
             console.log("undio click");
-              pozoSelecionado = map.params.main.markers[index].name;
-              var pozo = mapaPozos[pozoSelecionado];
+              var pozo = mapaPozos[index];
               //hasta aqui funciona perfecto
-              $('#infoPozo').text("pozo: " + pozoSelecionado);
-              $("#ener").text(pozo.lastPh);
+              $('#infoPozo').text("pozo: " + pozo._id);
+              $("#ph").text(pozo.lastPh);
               $("#temp").text(pozo.lastTemp);
-              $("#barr").text(pozo.lastSal);
-              console.log(pozoSelecionado);
+              $("#sal").text(pozo.lastSal);
           },
           markerStyle: {
               initial: {
@@ -269,7 +268,7 @@ export default class Principal extends Component {
                                                             <h1 id="temp" className="no-margins">25</h1>Celsius
                                                         </div>
                                                     </div>
-                                                    <div className="font-bold text-navy">98%
+                                                    <div className="font-bold text-navy">87%
                                                         <i className="fa fa-bolt"></i>
                                                     </div>
                                                 </div>
@@ -288,7 +287,7 @@ export default class Principal extends Component {
                                                             <i className="wi wi-windy fa-3x"></i>
                                                         </div>
                                                         <div className="col-sm-6">
-                                                            <h1 id="barr" className="no-margins">8.179</h1>0-14
+                                                            <h1 id="ph" className="no-margins">8.179</h1>0-14
                                                         </div>
                                                     </div>
                                                     <div className="font-bold text-navy">98%
@@ -309,7 +308,7 @@ export default class Principal extends Component {
                                                             <i className="wi wi-lightning fa-3x"></i>
                                                         </div>
                                                         <div className="col-sm-9">
-                                                            <h1 id="ener" className="no-margins">3%</h1>halinidad
+                                                            <h1 id="sal" className="no-margins">79%</h1>halinidad
                                                         </div>
                                                     </div>
                                                     <div className="font-bold text-navy">3%
