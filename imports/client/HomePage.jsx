@@ -12,45 +12,13 @@ export default class HomePage extends Component {
                   <h2>
                     Bienvenido a <br/> <br/>
                     <img src="/Azul profundo.png" className="logo" />
-                    <br/>Una plataforma de uso libre para todos los colombianos.
+                    <br/>Una propuesta que nace ante la problemática ambiental del <strong className="blue">blanqueamiento de los corales </strong>
+                     y busca brindar información clave sobre <strong className="blue">causas</strong> y posibles <strong className="blue">soluciones</strong> que el público puede realizar para mitigar
+                    los cambios que esto está generando en los ecosistemas.
                   </h2>
                 </div>
                 <br/>
-                <div className="row bod">
-                  <div className="col-md-4">
-                    <Thumbnail>
-                      <h3 className="head center">
-                        <i className="fa fa-search fa-2x" aria-hidden="true"></i> <br/>
-                        <strong className="green">Explora</strong> los datos
-                      </h3>
-                      <p className="center">
-                        Contamos con registros en tiempo real del mar
-                      </p>
-                    </Thumbnail>
-                  </div>
-                  <div className="col-md-4">
-                    <Thumbnail>
-                      <h3 className="head center">
-                        <i className="fa fa-book fa-2x" aria-hidden="true"></i> <br/>
-                        <strong className="green">Descubre</strong> sus maravillas
-                      </h3>
-                      <p className="center">
-                        Procuramos facilitar el aprendizaje del mar.
-                      </p>
-                    </Thumbnail>
-                  </div>
-                  <div className="col-md-4">
-                    <Thumbnail>
-                      <h3 className="head center">
-                        <i className="fa fa-check fa-2x" aria-hidden="true"></i> <br/>
-                        <strong className="green">Verifica</strong> que todo este en orden
-                      </h3>
-                      <p className="center">
-                        Manejamos una escala de colores para indicar características sospechosas que deberían ser revisadas por las entidades encargadas.
-                      </p>
-                    </Thumbnail>
-                  </div>
-                </div>
+
                 <div className="row bod center">
                   <Well>
                     <div className="row">
