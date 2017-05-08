@@ -13,10 +13,10 @@ export default class Navigbar extends Component {
                     <Nav className="bod">
                       <NavDropdown  title="Informate" >
                         <LinkContainer to="/problematica">
-                          <MenuItem >Problematica</MenuItem>
+                          <MenuItem >Problemática</MenuItem>
                         </LinkContainer>
                         <LinkContainer to="/queHacer">
-                          <MenuItem >¿Que hacer?</MenuItem>
+                          <MenuItem >¿Qué hacer?</MenuItem>
                         </LinkContainer>
                       </NavDropdown>
                       <NavDropdown  title="Contacto" >
@@ -24,7 +24,7 @@ export default class Navigbar extends Component {
                           <MenuItem >Nosotros</MenuItem>
                         </LinkContainer>
                         <LinkContainer to="/info">
-                          <MenuItem >Como contribuir</MenuItem>
+                          <MenuItem >Cómo contribuir</MenuItem>
                         </LinkContainer>
                       </NavDropdown>
 
@@ -43,16 +43,16 @@ export default class Navigbar extends Component {
                                 <LinkContainer to="/map">
                                   <MenuItem >Mapa</MenuItem>
                                 </LinkContainer>
-                                <LinkContainer to="/info">
-                                  <MenuItem >Estadisticas</MenuItem>
+                                <LinkContainer to="/estadisticasCol">
+                                  <MenuItem >Estadísticas</MenuItem>
                                 </LinkContainer>
                               </NavDropdown>
                               <NavDropdown  title="Mundo" id="Mundo">
                                 <LinkContainer to="/mapW">
                                   <MenuItem >Mapa</MenuItem>
                                 </LinkContainer>
-                                <LinkContainer to="/info">
-                                  <MenuItem >Estadisticas</MenuItem>
+                                <LinkContainer to="/estadisticasMun">
+                                  <MenuItem >Estadísticas</MenuItem>
                                 </LinkContainer>
                               </NavDropdown>
 

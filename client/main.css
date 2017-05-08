@@ -32,6 +32,9 @@
 .green{
   color: rgb(125, 161, 47);
 }
+.blue{
+  color: rgb(57, 61, 183);
+}
 
 .grey{
   color: rgb(65, 65, 65);
@@ -160,8 +163,32 @@
 #imagen5{
   background-image: url('http://wallpapercave.com/wp/8mmRiRn.jpg');
 }
+#bici{
+  background-image: url('bici.jpg');
+}
+#sol{
+  background-image: url('sol.jpg');
+}
+#bolsas{
+  background-image: url('bolsas.jpg');
+}
+#pitillos{
+  background-image: url('pitillos.jpg');
+}
 #imagen6{
   background-image: url('https://highnessdottv.files.wordpress.com/2015/10/corales-blanqueados.jpg');
   height: 20em;
   margin-top: 5em;
+}
+
+#estadisticasCol{
+  background-image: url('corales_colombia.jpg');
+  height: 40em;
+  width: 40em
+}
+
+#estadisticasMun{
+  background-image: url('estadisticas1.jpg');
+  height: 40em;
+  width: 40em
 }
