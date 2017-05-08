@@ -122,7 +122,10 @@ export default class PrincipalWorld extends Component {
             <div name="principal">
                 <div className="row wrapper border-bottom white-bg page-heading">
                     <div className="col-lg-12">
-                        <h2 className="breadcrumb">Información General de los  sensores maritimos</h2>
+                        <h2 className="breadcrumb center">Información General de los  sensores maritimos</h2>
+                        <h4 className="center">Aquí podrás encontrar el estado de los arrecifes de coral en tiempo real, gracias a unos sensores ubicados
+                          estratégicamente en los mares del mundo. Podrás conocer indicadores como temperatura y PH. Buscamos
+                          crear alertas oportunas para tomar las acciones pertinentes en estos ecosistemas.</h4>
                     </div>
                 </div>
                 <div className="wrapper wrapper-content">
