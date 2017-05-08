@@ -20,6 +20,7 @@ export default class problematica extends Component {
               <div>
                   <h2>
                       ¿Cuál es la importancia de los arrecifes de coral?
+                      
                   </h2>
 
                   <h4>
